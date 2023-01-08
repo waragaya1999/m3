@@ -1,0 +1,209 @@
+body {
+  background-color: #fff;
+  overflow: hidden;
+}
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+header {
+  width: 100%;
+  height: 80px;
+  display: flex;
+  background-color: #fff;
+  border-bottom: rgb(0, 0, 0, 0.1) 1px solid;
+}
+header img {
+  height: 60%;
+  align-self: center;
+  margin-left: 10px;
+}
+
+.sideBar {
+  width: 60px;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(0, 0, 0, 0.05);
+}
+
+.sideIcon {
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-self: center;
+  border-radius: 10px;
+  background-color: #fff;
+  margin: 10px 0;
+}
+.sideIcon img {
+  width: 80%;
+  height: 80%;
+  align-self: center;
+  margin: 0 auto;
+}
+
+.main {
+  margin-top: 0px;
+  display: flex;
+}
+
+#gmail {
+  background-color: #fff;
+  width: 500px;
+  height: 400px;
+  position: relative;
+  border: rgb(0, 0, 0, 0.1) 1px solid;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 3px 0 0 3px;
+}
+
+.tabBar {
+  width: 100%;
+  height: 50px;
+  position: relative;
+  background-color: rgb(0, 0, 0, 0.1);
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.tab {
+  width: 25%;
+  height: 80%;
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  background-color: #fff;
+  border-radius: 5px 5px 0 0;
+  margin-left: 10px;
+}
+.tab img {
+  height: 60%;
+  align-self: center;
+  padding: 0 5%;
+}
+.tab p {
+  align-self: center;
+  font-size: 16px;
+  color: #000;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tabBody {
+  color: #000;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  padding-left: 5px;
+}
+
+.subY {
+  height: 5px;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  align-self: flex-end;
+  cursor: ns-resize;
+  opacity: 0;
+}
+.subY:active {
+  cursor: ns-resize;
+}
+
+.subX {
+  width: 5px;
+  height: 100%;
+  position: absolute;
+  right: 0;
+  cursor: ew-resize;
+  opacity: 0;
+}
+.subX:active {
+  cursor: ew-resize;
+}
+
+.mails {
+  margin-top: 10px;
+  border-top: rgb(0, 0, 0, 0.1) 1px solid;
+}
+
+.mail {
+  padding: 12.5px 0;
+  border-bottom: rgb(0, 0, 0, 0.1) 1px solid;
+}
+
+.oneMail {
+  display: flex;
+  justify-content: space-around;
+}
+.oneMail li {
+  align-self: center;
+  list-style: none;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.gmailCheckBox {
+  width: 5%;
+  text-align: center;
+}
+.gmailSender {
+  width: 20%;
+}
+.gmailLabel {
+  width: 40%;
+}
+.gmailBody {
+  width: 20%;
+}
+.gmailTimeStamp {
+  width: 10%;
+  text-align: right;
+}
