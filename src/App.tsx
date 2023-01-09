@@ -10,6 +10,8 @@ export const App: React.FC = () => {
   const [tempY, setTempY] = useState<number>(defaultY)
   const [startX, setStartX] = useState<number>(0)
   const [startY, setStartY] = useState<number>(0)
+  const [panelList, setPanelList] = useState<string[]>([])
+  const [bodyEle, setBodyEle] = useState<JSX.Element>(<h1>m3</h1>)
 
   const onDragStartX = (e: React.DragEvent<HTMLDivElement>) => {
     setStartX(e.clientX)
@@ -45,36 +47,110 @@ export const App: React.FC = () => {
   const onDragY = (e: React.DragEvent<HTMLDivElement>) => {
     setMainY(tempY + e.clientY - startY)
   }
-  const cons = () => {
-    return console.log("clicked")
+  const callPanel = (name: string) => {
+    let tempArray = panelList.slice()
+    if (!panelList.includes(name)) {
+      tempArray.push(name)
+    } else {
+      delete tempArray[tempArray.indexOf(name)]
+    }
+    tempArray = tempArray.filter((v) => v)
+    setPanelList(tempArray)
+    handleBodyEle()
+    console.log(bodyEle)
   }
-
-  return (
-    <>
-      <header>
-        <img src="/logo.svg" alt=""></img>
-      </header>
-      <div className="main">
-        <div className="sideBar" style={{ height: window.innerHeight - 80 }}>
-          <div className="sideIcon">
-            <img src="/Gmail_icon_(2020).png"></img>
-          </div>
-          <div className="sideIcon">
-            <img src="/Gmail_icon_(2020).png"></img>
-          </div>
-          <div className="sideIcon">
-            <img src="/Gmail_icon_(2020).png"></img>
-          </div>
-          <div className="sideIcon">
-            <img src="/Gmail_icon_(2020).png"></img>
-          </div>
-          <div className="sideIcon">
-            <img src="/Gmail_icon_(2020).png"></img>
-          </div>
-          <div className="sideIcon">
-            <img src="/Gmail_icon_(2020).png"></img>
-          </div>
+  const gmailEle = (
+    <div id="gmail" style={{ width: mainX, height: mainY }}>
+      <div className="tabBar">
+        <div className="tab">
+          <img src="/Gmail_icon_(2020).png" alt=""></img>
+          <p>Gmail</p>
         </div>
+      </div>
+      <div
+        className="subY"
+        draggable
+        onDragEnd={onDragEndY}
+        onDragStart={onDragStartY}
+        onDrag={onDragY}
+      ></div>
+      <div
+        className="subX"
+        draggable
+        onDragEnd={onDragEndX}
+        onDragStart={onDragStartX}
+        onDrag={onDragX}
+      ></div>
+      <div
+        className="tabBody"
+        style={{ width: mainX - 10, height: mainY - 50 }}
+      >
+        <ul className="mails">
+          <li className="mail">
+            <ul className="oneMail">
+              <li className="gmailCheckBox">
+                <input type={"checkbox"}></input>
+              </li>
+              <li className="gmailSender">mochimochidaifucu</li>
+              <li className="gmailLabel">labellabellabel</li>
+              <li className="gmailBody">bodybodybody</li>
+              <li className="gmailTimeStamp">2022/1/1</li>
+            </ul>
+          </li>
+          <li className="mail">
+            <ul className="oneMail">
+              <li className="gmailCheckBox">
+                <input type={"checkbox"}></input>
+              </li>
+              <li className="gmailSender">mochimochidaifucu</li>
+              <li className="gmailLabel">labellabellabel</li>
+              <li className="gmailBody">bodybodybody</li>
+              <li className="gmailTimeStamp">2022/1/1</li>
+            </ul>
+          </li>
+          <li className="mail">
+            <ul className="oneMail">
+              <li className="gmailCheckBox">
+                <input type={"checkbox"}></input>
+              </li>
+              <li className="gmailSender">mochimochidaifucu</li>
+              <li className="gmailLabel">labellabellabel</li>
+              <li className="gmailBody">bodybodybody</li>
+              <li className="gmailTimeStamp">2022/1/1</li>
+            </ul>
+          </li>
+          <li className="mail">
+            <ul className="oneMail">
+              <li className="gmailCheckBox">
+                <input type={"checkbox"}></input>
+              </li>
+              <li className="gmailSender">mochimochidaifucu</li>
+              <li className="gmailLabel">
+                labellabellabellabellabellabellabellabellabellabel
+                labellabellabellabellabel
+              </li>
+              <li className="gmailBody">bodybodybody</li>
+              <li className="gmailTimeStamp">2022/1/1</li>
+            </ul>
+          </li>
+          <li className="mail">
+            <ul className="oneMail">
+              <li className="gmailCheckBox">
+                <input type={"checkbox"}></input>
+              </li>
+              <li className="gmailSender">mochimochidaifucu</li>
+              <li className="gmailLabel">labellabellabellabel</li>
+              <li className="gmailBody">bodybodybody</li>
+              <li className="gmailTimeStamp">2022/1/1</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  )
+  const handleBodyEle = () => {
+    if (panelList.includes("gmail")) {
+      setBodyEle(
         <div id="gmail" style={{ width: mainX, height: mainY }}>
           <div className="tabBar">
             <div className="tab">
@@ -161,7 +237,45 @@ export const App: React.FC = () => {
               </li>
             </ul>
           </div>
+        </div>,
+      )
+    } else {
+      setBodyEle(<h1>m3</h1>)
+    }
+  }
+
+  return (
+    <>
+      <header>
+        <img src="/logo.svg" alt=""></img>
+      </header>
+      <div className="main">
+        <div className="sideBar" style={{ height: window.innerHeight - 80 }}>
+          <div
+            className="sideIcon"
+            onClick={() => {
+              callPanel("gmail")
+            }}
+          >
+            <img src="/Gmail_icon_(2020).png"></img>
+          </div>
+          <div className="sideIcon">
+            <img src="/Gmail_icon_(2020).png"></img>
+          </div>
+          <div className="sideIcon">
+            <img src="/Gmail_icon_(2020).png"></img>
+          </div>
+          <div className="sideIcon">
+            <img src="/Gmail_icon_(2020).png"></img>
+          </div>
+          <div className="sideIcon">
+            <img src="/Gmail_icon_(2020).png"></img>
+          </div>
+          <div className="sideIcon">
+            <img src="/Gmail_icon_(2020).png"></img>
+          </div>
         </div>
+        {bodyEle}
       </div>
     </>
   )

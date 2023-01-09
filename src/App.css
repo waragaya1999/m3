@@ -4,7 +4,6 @@ body {
 }
 
 #root {
-  max-width: 1280px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -206,4 +205,11 @@ header img {
 .gmailTimeStamp {
   width: 10%;
   text-align: right;
+}
+
+h1 {
+  color: #000;
+  opacity: 0.3;
+  margin: 0 auto;
+  margin-top: 200px;
 }
