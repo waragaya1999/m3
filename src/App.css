@@ -168,8 +168,47 @@ header img {
   cursor: ew-resize;
 }
 
-.mails {
+.mailMenu {
+  height: 30px;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
   margin-top: 10px;
+}
+.mailMenu ul {
+  width: 40%;
+  max-width: 300px;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+.mailMenu img {
+  height: 20px;
+  opacity: 0.5;
+  user-drag: none;
+  -webkit-user-drag: none;
+  -moz-user-select: none;
+  user-select: none;
+  pointer-events: none;
+}
+
+.mailTab {
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+  color: #000;
+  margin-left: 2%;
+}
+.mailTab div {
+  width: 30%;
+  display: flex;
+  align-items: center;
+}
+.active {
+  border-bottom: #88f solid 2px;
+}
+
+.mails {
   border-top: rgb(0, 0, 0, 0.1) 1px solid;
 }
 
