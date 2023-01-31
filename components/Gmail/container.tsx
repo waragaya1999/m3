@@ -1,6 +1,6 @@
 import React from "react"
-import { useM3 } from "../../hooks/useM3"
 import { GmailPresenter } from "./presenter"
+import { useM3 } from "../../hooks/useM3"
 
 export const Gmail: React.FC = () => {
   const {
