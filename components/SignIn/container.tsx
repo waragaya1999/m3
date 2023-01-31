@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from "react"
 import axios from "axios"
-import { useParams } from "react-router-dom"
+import { useLocation } from "react-router-dom"
 import { useGmail } from "../../hooks/useGmail"
 
 type UserProfileRes = {
@@ -63,13 +63,14 @@ export const SignIn: React.FC = () => {
 
   // リダイレクトされたときにurlにcodeがのっかってくるのでuseRouterでクエリを取得する。
   // http://localhost:3000/login?code=111jashaみたいな感じで返ってくる。
-  const router = useParams()
-  const code = router.query
+  const router = useLocation()
+  const code = router.pathname
+  const strCode = code.toString().replace("/", "")
 
   // クエリでcodeが取れた場合、AccessTokenと交換する。
   useEffect(() => {
     if (code != null) {
-      toAuthCode(code as string)
+      toAuthCode("AIzaSyCTDIo0lD6qZsnMEX8xas2a0Cs2jMwMOOA")
     }
   }, [code])
 

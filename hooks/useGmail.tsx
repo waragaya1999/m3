@@ -13,14 +13,14 @@ export const useGmail = () => {
   const [invalidCode, setInvalidCode] = useState<boolean>(false)
 
   const clientId =
-    "437919103933-28nh4d3bb4rf6o6tkqosfmp4bnje957f.apps.googleusercontent.com"
-  const clientSecret = "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"
-  const redirectUrl = "http://localhost:3000/login"
+    "434844915559-i4j52m2ks53v2ucktnf5hfvk760tdr1a.apps.googleusercontent.com"
+  const clientSecret = "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"
+  const redirectUrl = "http://localhost:5173"
   const apiScope = "https://www.googleapis.com/auth/gmail.modify"
   const urlBase =
     "https://accounts.google.com/o/oauth2/v2/auth?response_type=code&client_id="
   const getTokenUrl = "https://accounts.google.com/o/oauth2/token"
-  const gmailAuthEndpoint = `${urlBase}${clientId}&redirect_uri=${redirectUrl}&scope=${apiScope}`
+  const gmailAuthEndpoint = `${urlBase}${clientId}&redirect_uri=${redirectUrl}&scope=${apiScope}&include_granted_scopes=true&access_type=offline`
 
   const toAuthCode = useCallback((code: string) => {
     // ここのジェネリックを指定することでAxiosResponseのdataの型が決まる。

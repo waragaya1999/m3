@@ -36,6 +36,7 @@ export const App: React.FC = () => {
     <BrowserRouter>
       <Routes>
         <Route path={"/"} element={<SignIn />} />
+        <Route path={"/signin"} element={<SignIn />} />
       </Routes>
     </BrowserRouter>
   )
