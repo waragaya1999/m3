@@ -1,6 +1,5 @@
 import React, { useCallback, useEffect, useState } from "react"
 import axios from "axios"
-import { useLocation } from "react-router-dom"
 import { useGmail } from "../../hooks/useGmail"
 
 type UserProfileRes = {
@@ -63,15 +62,24 @@ export const SignIn: React.FC = () => {
 
   // リダイレクトされたときにurlにcodeがのっかってくるのでuseRouterでクエリを取得する。
   // http://localhost:3000/login?code=111jashaみたいな感じで返ってくる。
-  const router = useLocation()
-  const code = router.pathname
-  const strCode = code.toString().replace("/", "")
+  // const router = useParams()
+  const params = new URLSearchParams(window.location.search)
+  const code = params
+    .toString()
+    .replace("code=", "")
+    .replace(
+      "&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fgmail.modify",
+      "",
+    )
+    .replace("%2F", "/")
+  // const strCode = code.toString().replace("/", "")
 
   // クエリでcodeが取れた場合、AccessTokenと交換する。
   useEffect(() => {
     if (code != null) {
-      toAuthCode("AIzaSyCTDIo0lD6qZsnMEX8xas2a0Cs2jMwMOOA")
+      toAuthCode(code)
     }
+    console.log(code)
   }, [code])
 
   // プロフィールを取得するapiのendpoint。yourmailaddressにはOAuthで入力したメールアドレスを入力。

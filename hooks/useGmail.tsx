@@ -38,6 +38,7 @@ export const useGmail = () => {
         // invalid_grantが返ってきた場合、codeが使用済みのケースが多い。
         console.log(e.response.data.error)
         console.log({ error: e })
+        console.warn({ code })
         if (e.response.data.error === "invalid_grant") {
           setInvalidCode(true)
         } else {
