@@ -83,13 +83,11 @@ export const SignIn: React.FC = () => {
   }, [code])
 
   // プロフィールを取得するapiのendpoint。yourmailaddressにはOAuthで入力したメールアドレスを入力。
-  const endpoint =
-    "https://gmail.googleapis.com/gmail/v1/users/mochimochidaifucu@gmail.com/profile"
+  const endpoint = "https://gmail.googleapis.com/gmail/v1/users/me/profile"
 
   // メールのリストを取得するapiのendpoint。yourmailaddressにはOAuthで入力したメールアドレスを入力。
   // 以下apiのResponceはidとthreadidしかないため、データが取れた後詳細をgetする
-  const mailEndpoint =
-    "https://gmail.googleapis.com/gmail/v1/users/mochimochidaifucu@gmail.com}/messages"
+  const mailEndpoint = "https://gmail.googleapis.com/gmail/v1/users/me/messages"
 
   // profileを取得する関数
   const getProfile = useCallback(() => {
@@ -209,8 +207,8 @@ export const SignIn: React.FC = () => {
               return (
                 <>
                   <ul>
-                    <li>{getSubject(m)}</li>
-                    <li>snippet: {m.snippet}</li>
+                    <li style={{ color: "black" }}>{getSubject(m)}</li>
+                    <li style={{ color: "black" }}>snippet: {m.snippet}</li>
                   </ul>
                 </>
               )
